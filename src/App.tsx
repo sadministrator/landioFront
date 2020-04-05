@@ -1,26 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import React, { Component } from 'react';
+import SocketIOClient from 'socket.io-client';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const ENDPOINT = 'localhost:5000';
+interface PropType {
+
+}
+
+interface StateType {
+    response: string;
+    endpoint: string;
+}
+
+class App extends Component<PropType, StateType> {
+    constructor(props: PropType) {
+        super(props);
+
+        this.state = {
+            response: '',
+            endpoint: ENDPOINT
+        }
+    }
+
+    componentDidMount() {
+        const { endpoint } = this.state;
+        const socket = SocketIOClient(endpoint);
+        socket.on('message', (data: string) => {
+            this.setState({ response: data })
+        })
+    }
+
+    render() {
+        const { response } = this.state;
+        return (
+            <div>
+                {response
+                    ? <h3>{response}</h3>
+                    : <h3>No messages.</h3>}
+            </div>
+        )
+    }
 }
 
 export default App;
