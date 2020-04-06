@@ -1,0 +1,19 @@
+.Input {
+    display: flex;
+    position: absolute;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 3px;
+    bottom: 0;
+}
+
+#chatText {
+    width: 80%;
+    background-color: skyblue;
+    margin-right: 1%;
+}
+
+#chatButton {
+    width: 19%;
+    background-color: snow;
+}
