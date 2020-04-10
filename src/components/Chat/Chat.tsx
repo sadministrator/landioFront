@@ -2,13 +2,14 @@ import './Chat.css';
 import React, { Component } from 'react';
 import SocketIOClient from 'socket.io-client';
 import Input from './Input'
-import MessageType from '../types/MessageType';
+import MessageType from '../../types/MessageType';
 import MessageList from './MessageList';
-import GenerateId from '../helpers/GenerateId';
+import GenerateId from '../../helpers/GenerateId';
 
 interface ChatProps {
     className?: string;
     endpoint: string;
+    room: string;
 }
 
 interface ChatState {

@@ -1,0 +1,21 @@
+.UserCustomize {
+    background-color: violet;
+    border: solid 2px black;
+    border-radius: 30px;
+    text-align: center;
+    box-sizing: border-box;
+    width: 70%;
+    height: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#userSwatch {
+    width: 30px;
+    height: 30px;
+    margin-left: 5px;
+    margin-bottom: 13px;
+    border: solid 2px black;
+    border-radius: 3px;
+}

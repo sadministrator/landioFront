@@ -1,16 +1,17 @@
 .Input {
     display: flex;
-    position: absolute;
+    position: fixed;
     box-sizing: border-box;
-    width: 100%;
-    padding: 3px;
+    width: inherit;
     bottom: 0;
+    background-color: cornflowerblue;
+    border-top: 2px solid royalblue;
 }
 
-#chatText {
+#chatInput {
     width: 80%;
     background-color: skyblue;
-    margin-right: 1%;
+    margin-right: 2px;
 }
 
 #chatButton {

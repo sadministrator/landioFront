@@ -32,7 +32,7 @@ export default class Input extends Component<InputProps, InputState> {
     render() {
         return (
             <form className="Input" onSubmit={this.handleSubmit}>
-                <input id='chatText' type='text' name='message' value={this.state.value} onChange={this.handleChange} />
+                <input id='chatInput' type='text' name='message' value={this.state.value} onChange={this.handleChange} />
                 <input id='chatButton' type='submit' value='Submit' />
             </form>
         )

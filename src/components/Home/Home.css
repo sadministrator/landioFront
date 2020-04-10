@@ -1,0 +1,10 @@
+.Home {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.Chat {
+    right: 0;
+}

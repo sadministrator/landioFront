@@ -1,6 +1,6 @@
 import './App.css';
 import React, { Component } from 'react';
-import Chat from './components/Chat';
+import Home from './components/Home/Home';
 
 interface AppProps { }
 
@@ -10,7 +10,7 @@ class App extends Component<AppProps, AppState> {
     render() {
         return (
             <div className='App'>
-                <Chat className='Chat' endpoint='localhost:5000' />
+                <Home />
             </div>
         )
     }

@@ -1,0 +1,9 @@
+.Message {
+    text-align: center;
+    display: inline-block;
+    margin: 2px;
+    width: 85%;
+    line-height: .6rem;
+    word-wrap: break-word;
+    background-color: skyblue;
+}
