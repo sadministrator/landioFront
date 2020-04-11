@@ -17,8 +17,8 @@ export default class MessageList extends Component<MessageListProps, MessageList
             <div className='MessageList'>
                 {this.props.messages.map((message) => {
                     return (
-                        <div key={message.id}>
-                            <Message author={message.author} content={message.content} timestamp={message.timestamp} />
+                        <div key={message.messageId}>
+                            <Message message={message} />
                         </div>
                     )
                 })}

@@ -51,7 +51,7 @@ export default class Home extends Component<HomeProps, HomeState> {
             <div className='Home'>
                 <UserCustomize usernameChange={this.handleUsernameChange} userColor={this.state.userColor} handleColorChange={this.handleColorChange} />
                 <RoomSelect roomChange={this.handleRoomChange} />
-                <Chat endpoint='localhost:5000' room={this.state.room} />
+                <Chat endpoint='localhost:5000' room={this.state.room} userId={this.state.userId} username={this.state.username} />
             </div>
         )
     }

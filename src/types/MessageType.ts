@@ -1,7 +1,9 @@
 export default interface MessageType {
-    id: string,
-    author: string,
-    content: string,
-    timestamp: Date,
+    room: string;
+    messageId: string;
+    userId: string;
+    username: string;
+    content: string;
+    timestamp: Date;
     //color: string // todo: custom type
 }

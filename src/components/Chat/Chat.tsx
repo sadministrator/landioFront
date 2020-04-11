@@ -10,6 +10,8 @@ interface ChatProps {
     className?: string;
     endpoint: string;
     room: string;
+    userId: string;
+    username: string;
 }
 
 interface ChatState {
@@ -26,37 +28,53 @@ export default class Chat extends Component<ChatProps, ChatState> {
             messages: []
         }
 
+        //this.socket = SocketIOClient(this.props.endpoint);
+
         this.handleEmit = this.handleEmit.bind(this);
     }
 
     componentDidMount() {
-        this.socket = SocketIOClient(this.props.endpoint)
+        this.socket = SocketIOClient(this.props.endpoint);
         this.socket.on('chat message', (message: MessageType) => {
             this.setState((state) => {
                 const updatedMessages = state.messages.concat(message);
-                console.log('Messages: ', updatedMessages);
                 return {
                     messages: updatedMessages
                 }
             });
-        })
+        });
+        this.handleEmit('Joining global.', 'join room');
+    }
+
+    componentDidUpdate(prevProps: ChatProps) {
+        if(prevProps.room != this.props.room) {
+            alert('room change: ' + this.props.room)
+            this.handleEmit('Joining ' + this.props.room, 'join room');
+        }
     }
 
     componentWillUnmount() {
         //this.socket.disconnect();
     }
 
-    handleEmit = (message: string) => {
-        this.socket.emit('chat message', {
-            id: GenerateId.generate(), author: 'me', content: message, timestamp: new Date()
-        });
+    handleEmit = (message: string, emitType = 'chat message') => {
+        const chatMessage: MessageType = {
+            room: this.props.room,
+            messageId: GenerateId.generate(),
+            userId: this.props.userId,
+            username: this.props.username,
+            content: message,
+            timestamp: new Date()
+        }
+
+        this.socket.emit(emitType, chatMessage);
     }
 
     render() {
         return (
             <div className='Chat'>
                 <MessageList messages={this.state.messages} />
-                <Input handleEmit={this.handleEmit}/>
+                <Input handleEmit={this.handleEmit} />
             </div>
         )
     }

@@ -32,6 +32,8 @@ export default class RandomColor {
         this.colors.map((color) => {
             if (color.hex)
                 return colorsHex.push(color.hex);
+            else
+                return 'no hex';
         });
 
         return colorsHex;

@@ -6,4 +6,6 @@
     line-height: .6rem;
     word-wrap: break-word;
     background-color: skyblue;
+    border: 2px solid lightsteelblue;
+    border-radius: 10px;
 }

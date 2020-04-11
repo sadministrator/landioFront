@@ -39,17 +39,19 @@ export default class UserCustomize extends Component<UserCustomizeProps, UserCus
     render() {
         return (
             <div className='UserCustomize'>
-                <div className='Username'>
-                    <form id='usernameForm' onSubmit={this.handleUsernameSubmit}>
-                        <h1 id='usernameTitle'>Username</h1>
-                        <input id='usernameInput' type='text' name='username' value={this.state.username} onChange={this.handleUsernameChange} />
-                        <input id='usernameButton' type='submit' value='Submit' />
-                    </form>
-                </div>
+                <div className='UserCustomizeInner'>
+                    <div className='Username'>
+                        <form id='usernameForm' onSubmit={this.handleUsernameSubmit}>
+                            <h1 id='usernameTitle'>Username</h1>
+                            <input id='usernameInput' type='text' name='username' value={this.state.username} onChange={this.handleUsernameChange} />
+                            <input id='usernameButton' type='submit' value='Submit' />
+                        </form>
+                    </div>
 
-                <div className='Color'>
-                    <div id='userSwatch' style={{ backgroundColor: this.props.userColor.hex }}></div>
-                    <TwitterPicker color={this.props.userColor.hex} onChangeComplete={this.props.handleColorChange} colors={RandomColor.colorsHex()} />
+                    <div className='Color'>
+                        <div id='userSwatch' style={{ backgroundColor: this.props.userColor.hex }}></div>
+                        <TwitterPicker color={this.props.userColor.hex} onChangeComplete={this.props.handleColorChange} colors={RandomColor.colorsHex()} />
+                    </div>
                 </div>
             </div>
         )

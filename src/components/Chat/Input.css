@@ -5,7 +5,7 @@
     width: inherit;
     bottom: 0;
     background-color: cornflowerblue;
-    border-top: 2px solid royalblue;
+    border: 2px solid royalblue;
 }
 
 #chatInput {
